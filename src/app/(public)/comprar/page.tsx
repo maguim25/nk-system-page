@@ -53,6 +53,7 @@ export default function PageContatoComprar() {
     console.log(msgLead.data, 'msgLead');
 
     if(msgLead.data.msg === "Mensagem enviada"){
+      window.scrollTo(0, 0);
       setMsgEnviada(true);
 
       setTimeout(() => {

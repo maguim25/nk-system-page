@@ -6,7 +6,7 @@ import { Container, Typography, TextField, Button, FormControl, MenuItem, InputL
 
 import { cadastroLeadDemonstracaoSitema } from '@/services/leadService';
 import { Lead } from './../../../services/model/lead.d';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function PageContatoDemonstracao() {
   const [impressora, setimpressora] = useState('');
@@ -20,6 +20,11 @@ export default function PageContatoDemonstracao() {
   const telefoneMask = ['(', /[1-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   
   const [telefone, setTelefone] = useState('');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+  
 
   const handleTelefoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Aplicação manual da máscara de telefone
@@ -53,6 +58,7 @@ export default function PageContatoDemonstracao() {
     console.log(msgLead.data, 'msgLead');
 
     if(msgLead.data.msg === "Mensagem enviada"){
+      window.scrollTo(0, 0);
       setMsgEnviada(true);
 
       setTimeout(() => {

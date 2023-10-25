@@ -1,20 +1,21 @@
-import * as admin from 'firebase-admin';
-import * as functions from 'firebase-functions';
-import next from 'next';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-admin.initializeApp();
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCOXowQZp-BukcVRpYcqPwxHEG9KtiudXY",
+  authDomain: "nk-system-1.firebaseapp.com",
+  projectId: "nk-system-1",
+  storageBucket: "nk-system-1.appspot.com",
+  messagingSenderId: "311145277816",
+  appId: "1:311145277816:web:cb7681fa2e6302e751008d",
+  measurementId: "G-2G81L1G0C7"
+};
 
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({
-    dev,
-    // the absolute directory from the package.json file that initialises this module
-    // IE: the absolute path from the root of the Cloud Function
-    conf: { distDir: 'dist/client' },
-});
-const handle = app.getRequestHandler();
-
-export const nextjsServer = functions.https.onRequest((request, response) => {
-    // log the page.js file or resource being requested
-    console.log('File: ' + request.originalUrl);
-    return app.prepare().then(() => handle(request, response));
-});
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);

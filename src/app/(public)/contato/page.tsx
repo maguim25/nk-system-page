@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Typography, TextField, Button, SelectChangeEvent, Card, CardContent } from '@mui/material';
 import { cadastroLeadDemonstracaoSitema } from '@/services/leadService';
 import SendIcon from '@mui/icons-material/Send';
@@ -28,6 +28,11 @@ export default function PageContato() {
     company: '',
     phone: '',
   });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+  
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -64,6 +69,7 @@ export default function PageContato() {
     console.log(msgLead.data, 'msgLead');
 
     if(msgLead.data.msg === "Mensagem enviada"){
+      window.scrollTo(0, 0);
       setMsgEnviada(true);
 
       setTimeout(() => {

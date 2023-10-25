@@ -1,9 +1,22 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect } from 'react';
 import { Container, Typography, Card, CardContent } from '@mui/material';
 
 
 
 export default function PageSobreNos() {
+
+  useEffect(() => {
+    upToPage();
+  }, [])
+  
+  const upToPage = () =>{
+    window.scrollTo(0, 0); 
+
+  }
+  
+
   return (
     <div style={{marginTop: 100, marginBottom: 50}}>
       <Container maxWidth="md">

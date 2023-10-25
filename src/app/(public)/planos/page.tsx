@@ -8,8 +8,10 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch, { SwitchProps } from '@mui/material/Switch';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'
+import ReactGA from 'react-ga';
+
 
 
 
@@ -24,6 +26,11 @@ export default function PagePlanos() {
   const [valorMes2, setValorMes2] = useState('R$ 175,00 /mês');
 
   const [impressora3, setImpressora3] = useState('com impressora');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+  
 
   const handleimpressora1 = ()=>{
     if (impressora1 === "com impressora"){
@@ -47,6 +54,12 @@ export default function PagePlanos() {
 
   const handleComprar = ()=>{
     router.push('/comprar', { scroll: false })
+    window.scrollTo(0, 0);
+    ReactGA.event({
+      category: 'Botão',
+      action: 'Clique',
+      label: 'Comprar',
+    });
   }
 
 

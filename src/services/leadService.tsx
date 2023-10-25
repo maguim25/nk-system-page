@@ -17,4 +17,13 @@ const cadastroLeadDemonstracaoSitema = (json: Lead) => {
     });
 };
 
-export { cadastroLeadDemonstracaoSitema }; // Exporte o método
+const acordarContainerZap = () => {
+
+    //console.log(json, 'json AXIOS');
+    //return;
+
+    return axios.post('https://payment-bank-inter-688f7530dc48.herokuapp.com/Payment/Integration');
+};
+
+
+export { cadastroLeadDemonstracaoSitema , acordarContainerZap}; // Exporte o método

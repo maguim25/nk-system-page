@@ -4,9 +4,14 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import SendIcon from '@mui/icons-material/Send';
 
 import { Container, Typography, TextField, Button, FormControl, MenuItem, InputLabel, Box } from '@mui/material';
+import { useEffect } from 'react';
 
 
 export default function PageHome() {
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [])
+  
     return (
       <div className='container col-sm-4'style={{marginTop: 200, marginBottom: 200}}>
 
